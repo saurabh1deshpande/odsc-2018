@@ -1,3 +1,8 @@
+'''
+This code has been copied from https://github.com/Vetal1977/pong-rl
+'''
+
+
 import time
 
 import gym

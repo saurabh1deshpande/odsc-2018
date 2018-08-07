@@ -1,3 +1,7 @@
+'''
+This code has been copied from https://github.com/Vetal1977/pong-rl
+'''
+
 from pong_nn import PongAgent
 
 def main():
