@@ -16,8 +16,8 @@ torch==0.4.0
 <Your Python Environment’s pip path>pip install -r requirements.txt
 
 For Multi Armed Bandits Code, please clone and install environments from following repo,\
-sudo git clone https://github.com/JKCooper2/gym-bandits.git\
-cd gym-bandits/
+sudo git clone https://github.com/JKCooper2/gym-bandits.git \
+cd gym-bandits\
 <your environment pip path> pip install .
 
 For DQN you will have to install,\
