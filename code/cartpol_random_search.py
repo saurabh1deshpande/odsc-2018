@@ -6,18 +6,19 @@ import matplotlib.pyplot as plt
 
 def run_episode(env,parameters):
     observation = env.reset()
-    totalreward = 0
+    total_rewards = 0
     for _ in range(200):
         action = 0 if np.matmul(parameters,observation) < 0 else 1
         observation, reward, done, info = env.step(action)
-        totalreward += reward
+        total_rewards += reward
         if done:
             break
-    return totalreward
-    pass
+    return total_rewards
+
 
 def random_search():
     return np.random.rand(4) * 2 - 1
+
 
 def main():
     env = gym.make('CartPole-v1')
@@ -29,7 +30,7 @@ def main():
     
     for step in range(num_of_trials):
         counter += 1
-        parameters = np.random.rand(4) * 2 - 1
+        parameters = random_search()
         reward = run_episode(env,parameters)
         total_rewards.append(reward)
         if reward > best_reward:
