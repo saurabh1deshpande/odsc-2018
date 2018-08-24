@@ -16,8 +16,9 @@ def run_episode(env,parameters):
     return totalreward
     pass
 
-def random_search():
-    return np.random.rand(4) * 2 - 1
+def hill_climb_search():
+    noise_scaling = 0.1
+    return (np.random.rand(4) * 2 - 1) * noise_scaling
 
 def main():
     env = gym.make('CartPole-v1')
@@ -26,13 +27,12 @@ def main():
     best_reward = 0
     best_params = None
     counter = 0
-    noise_scaling = 0.1
-    parameters = np.random.rand(4) * 2 - 1;
+    parameters = np.random.rand(4) * 2 - 1
     
     for step in range(num_of_trials):
         counter += 1   
         
-        new_parameters = parameters + (np.random.rand(4) * 2 - 1) * noise_scaling
+        new_parameters = parameters + hill_climb_search()
         reward = run_episode(env,new_parameters)
         total_rewards.append(reward)
         if reward > best_reward:
