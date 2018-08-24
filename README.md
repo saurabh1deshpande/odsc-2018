@@ -4,12 +4,11 @@ This is source code repository for session "Introduction to Reinforcement Learni
 
 
 # Requirements
-Linux\
 Python >3.5\
 gym==0.10.5\
 numpy==1.14.0\
 matplotlib==2.1.2\
-torch==0.4.0
+
 
 # Installation of Prerequisites
 
@@ -21,7 +20,7 @@ cd gym-bandits\
 <your environment pip path> pip install .
 
 For DQN you will have to install,\
-pytorch (https://pytorch.org/)\
+pytorch and torchvision (https://pytorch.org/)\
 opencv (conda install -c conda-forge opencv)\
 pip install gym[atari]
 
