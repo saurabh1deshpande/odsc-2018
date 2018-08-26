@@ -286,7 +286,7 @@ class PongAgent:
         
         :param filename: model filename
         '''
-        self.dqn.load_state_dict(torch.load(filename))
+        self.dqn.load_state_dict(torch.load(filename, map_location='cpu' if not use_gpu else 'gpu'))
         self.sync_target_network()
         
         

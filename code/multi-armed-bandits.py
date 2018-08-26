@@ -1,28 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
 import gym
 import gym_bandits
 import matplotlib.patches as mpatches
 
 
-class ucb_bandit:
-    '''
-    Upper Confidence Bound k-bandit problem
-    
-    Inputs 
-    ============================================
-    k: number of arms (int)
-    c:
-    iters: number of steps (int)
-    mu: set the average rewards for each of the k-arms.
-        Set to "random" for the rewards to be selected from
-        a normal distribution with mean = 0. 
-        Set to "sequence" for the means to be ordered from 
-        0 to k-1.
-        Pass a list or array of length = k for user-defined
-        values.
-    '''
+class MultiArmedBandits:
+
     def __init__(self, k, c, iters,strategy,epsilon=0.5):
         # Number of arms
         self.k = k
@@ -43,22 +27,16 @@ class ucb_bandit:
         self.strategy = strategy
         
         # epsilon for epsilon greedy strategy
-        self.epsilon =epsilon
-        
-        
-        #self.env = gym.make('BanditTenArmedUniformDistributedReward-v0')
+        self.epsilon = epsilon
         self.env = gym.make('BanditTenArmedGaussian-v0')
         self.env.reset()
-                
-        
+
     def pull(self):
-        # Select action according to UCB Criteria
+
         a = self.get_action()
-        #print('action={}'.format(a))
-            
+
         observation, reward, done, info = self.env.step(a)
-        #reward = np.random.normal(self.mu[a], 1)
-        
+
         # Update counts
         self.n += 1
         self.k_n[a] += 1
@@ -83,11 +61,9 @@ class ucb_bandit:
                 return self.env.action_space.sample()
             else:
                 return np.argmax(self.k_reward)
-            
-        
+
     def run(self):
         for i in range(self.iters):
-            #print('i={}'.format(i))
             self.pull()
             self.reward[i] = self.mean_reward
             
@@ -126,7 +102,7 @@ def run_ucb(k,iters,episodes):
     
     ucb_rewards = np.zeros(iters)
     # Initialize bandits
-    ucb = ucb_bandit(k, 2, iters,'UCB')
+    ucb = MultiArmedBandits(k, 2, iters,'UCB')
     
     
     # Run experiments
@@ -139,6 +115,7 @@ def run_ucb(k,iters,episodes):
         # Update long-term averages
         ucb_rewards = ucb_rewards + (
             ucb.reward - ucb_rewards) / (i + 1)
+    
     return ucb_rewards
 
 
@@ -147,7 +124,7 @@ def run_epsilon(k,iters,episodes):
     
     epsilon_rewards = np.zeros(iters)
     # Initialize bandits
-    ucb = ucb_bandit(k, 1, iters,'epsilon')
+    ucb = MultiArmedBandits(k, 1, iters,'epsilon')
     
     
     # Run experiments
