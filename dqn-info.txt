@@ -1,0 +1,19 @@
+For DQN you will have to install,
+pytorch and torchvision (https://pytorch.org/)
+opencv (conda install -c conda-forge opencv)
+pip install gym[atari]
+
+If gym[atari] installation errors out on cmake not being installed,
+To install cmake,
+
+sudo apt-get install zlib1g-dev
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:george-edison55/cmake-3.x
+sudo apt-get update
+sudo apt-get install cmake
+
+DQN code is copied from https://github.com/Vetal1977/pong-rl. It is divided it into two files,
+pong_nn.py - Training and model persistence. It creates directory called 'model' in the same path and saves intermediate and final models.
+Trained model is checked under 'model' directory. It took around 5 hours to train on my personal hardware (ubuntu 14.04, 64GB RAM, 1 NVIDEA 1050 2GB) 
+
+To directly run pong game using pre-trained model, run,  pong_nn_play.py
