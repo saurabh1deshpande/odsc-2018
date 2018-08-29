@@ -8,6 +8,7 @@ Python >3.5\
 gym==0.10.5\
 numpy==1.14.0\
 matplotlib==2.1.2\
+pytorch >0.4.0
 
 
 # Installation of Prerequisites
@@ -18,3 +19,6 @@ For Multi Armed Bandits Code, please clone and install environments from followi
 git clone https://github.com/JKCooper2/gym-bandits.git \
 cd gym-bandits\
 <your environment pip path> pip install .
+
+Install Pytorch
+https://pytorch.org/
