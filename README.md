@@ -15,6 +15,6 @@ matplotlib==2.1.2\
 <Your Python Environment’s pip path>pip install -r requirements.txt
 
 For Multi Armed Bandits Code, please clone and install environments from following repo,\
-sudo git clone https://github.com/JKCooper2/gym-bandits.git \
+git clone https://github.com/JKCooper2/gym-bandits.git \
 cd gym-bandits\
 <your environment pip path> pip install .
