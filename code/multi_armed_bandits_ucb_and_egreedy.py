@@ -1,9 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import gym
-import gym_bandits
-import matplotlib.patches as mpatches
-
 
 def main():
 

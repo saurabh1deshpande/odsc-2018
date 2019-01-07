@@ -39,6 +39,8 @@ def main():
     env = Environment()
     current_state = env.reset()
 
+    print("Actions:{1,2}")
+
     print(f'State:{state_names[current_state]}')
 
     n = 1

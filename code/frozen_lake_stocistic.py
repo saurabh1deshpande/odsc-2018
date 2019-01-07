@@ -6,7 +6,7 @@ plt.style.use('ggplot')
 
 def main():
     # Starting new environment
-    env = gym.make('FrozenLakeNotSlippery-v0')
+    env = gym.make('FrozenLake-v0')
 
     # Variable to hold total number of steps and rewards over all the episodes
     # This is required in the end to calculate average number of steps

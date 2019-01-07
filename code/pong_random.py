@@ -13,6 +13,6 @@ def main():
                 action = env.action_space.sample() # force to choose an action from the network
                 state, reward, done, _ = env.step(action)
                 env.render()
-    
+    input()
 if __name__ == "__main__":
     main()
